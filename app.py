@@ -1,6 +1,8 @@
+# import required libraries 
 import streamlit as st
 import pandas as pd
 import pickle
+
 
 # Load the trained Random Forest model
 with open('random_forest_model_better_accuracy.pkl', 'rb') as f:
