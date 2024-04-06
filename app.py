@@ -3,10 +3,9 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-
 # Load the trained Random Forest model
-with open('random_forest_model_better_accuracy.pkl', 'rb') as f:
-    model = pickle.load(f)
+#with open('random_forest_model_better_accuracy.pkl', 'rb') as f:
+    #model = pickle.load(f)
 
 # Define function to preprocess user input
 def preprocess_input(age, gender, education, country, ethnicity, nscore, escore, oscore, ascore, cscore, impulsive, ss, alcohol):
@@ -49,8 +48,8 @@ def main():
     alcohol = st.sidebar.slider('Alcohol', 0, 10, 5)
 
     # Preprocess input and make prediction
-    input_df = preprocess_input(age, gender, education, country, ethnicity, nscore, escore, oscore, ascore, cscore, impulsive, ss, alcohol)
-    prediction = model.predict(input_df)
+    #input_df = preprocess_input(age, gender, education, country, ethnicity, nscore, escore, oscore, ascore, cscore, impulsive, ss, alcohol)
+    #prediction = model.predict(input_df)
 
     # Display prediction
     st.subheader('Prediction')
