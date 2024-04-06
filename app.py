@@ -1,10 +1,26 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import requests
+from io import BytesIO
+
+# Function to download the file from the URL
+def download_file(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return BytesIO(response.content)
+    else:
+        st.error("Failed to download the file.")
+
+# URL of the file in the GitHub repository
+url = 'https://github.com/harshalpanchal2000/Drug_Classifier-/blob/main/random_forest_model_better_accuracy.pkl'
+
+# Download the file
+file_content = download_file(url)
 
 # Load the trained Random Forest model
-with open('https://github.com/harshalpanchal2000/Drug_Classifier-/blob/main/random_forest_model_better_accuracy.pkl', 'rb') as f:
-    model = pickle.load(f)
+if file_content:
+    model = pickle.load(file_content)
 
 def main():
     st.title("Hello, World!")
